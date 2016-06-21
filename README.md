@@ -1,8 +1,9 @@
 ## RedRouter
 
-RedRouter is a universal reverse-proxy developed in Node.JS.  It is designed to be modular as possible, allowing you to use whatever Backend, Resolver and Proxy Agent you wish.  What are these things, you ask?
+[![Build Status](https://travis-ci.org/DerekTBrown/redrouter.svg?branch=master)](https://travis-ci.org/DerekTBrown/redrouter)
+[![npm version](https://badge.fury.io/js/redrouter.svg)](https://badge.fury.io/js/redrouter)
 
-> RedRouter began by merging code from the [RedBird](https://github.com/OptimalBits/redbird) and [RedWire](https://github.com/metocean/redwire) projects.  Thanks to them for their incredible contribuitions!
+RedRouter is a universal reverse-proxy developed in Node.JS.  It is designed to be modular as possible, allowing you to use whatever Backend, Resolver and Proxy Agent you wish.  What are these things, you ask?
 
 #### Backend
 Backends are used to store the Proxy Records themselves.  By default, RedRouter stores proxy records in a memory cache, but you can opt to use the following:
@@ -32,4 +33,6 @@ Proxy agents listen on a given port, and use  Typically, proxy agents will be pr
 ## API
 
 ## Contributing
+> RedRouter began by merging code from the [RedBird](https://github.com/OptimalBits/redbird) and [RedWire](https://github.com/metocean/redwire) projects.  Thanks to them for their incredible contribuitions!
+
 Because of its modularity, contributing to the RedRouter project is easy.  Simply make a feature request in the issues, so that we can discuss any details, and you can ask any questions that arise.
