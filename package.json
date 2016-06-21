@@ -1,0 +1,37 @@
+{
+  "name": "redrouter",
+  "version": "0.1.0",
+  "description": "modular reverse proxy for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learnlinux/redrouter.git"
+  },
+  "keywords": [
+    "redrouter",
+    "ssh",
+    "reverse",
+    "proxy"
+  ],
+  "author": "Derek Brown",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/learnlinux/redrouter/issues"
+  },
+  "homepage": "https://github.com/learnlinux/redrouter#readme",
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "commander": "^2.9.0",
+    "node-cache": "^3.2.1",
+    "node-etcd": "^5.0.1",
+    "ssh2": "^0.5.0",
+    "tunnel-ssh": "^3.2.1-beta"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}

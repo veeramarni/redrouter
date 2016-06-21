@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+// Import shtty
+var shtty = require('./index.js');
+
+// Commander Config
+var program = require('commander')
+    program.version('0.1.0')
+    program.action(function(cmd){
+      programCMD = cmd;
+    });
+
+
+// Start Command
+  var programCMD;
+  program
+    .command('start [etcd_hosts]')
+    .description('start shtty reverse proxy')
+    .action(function(cmd, etcd_hosts){
+        // Create new shtty server
+        shtty();
+    });
+
+// Parse
+  program.parse(process.argv);
+
+// Defaults
+  if (typeof programCMD === 'undefined'){
+      program.outputHelp();
+  }
