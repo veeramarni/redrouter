@@ -1,5 +1,4 @@
-## SHTTY
-
+## RedRouter
 
 RedRouter is a universal reverse-proxy developed in Node.JS.  It is designed to be modular as possible, allowing you to use whatever Backend, Resolver and Proxy Agent you wish.  What are these things, you ask?
 
