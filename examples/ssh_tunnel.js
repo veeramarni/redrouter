@@ -15,9 +15,10 @@ var resolver_static = require('../lib/resolver');
   Define a RedRouter Instance
 */
 var proxy = new redrouter({
-  backend : [
-    { constructor: backend_etcd, options: {}}
-  ],
+  backend : {
+    constructor: backend_etcd,
+    options: {}
+  },
   resolvers: [
     { constructor: resolver_static, options: {}}
   ],
