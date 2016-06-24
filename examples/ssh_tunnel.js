@@ -8,7 +8,7 @@ var redrouter = require('../');
 // Import RedRouter Components
 var backend_etcd = require('../lib/backend/etcd');
 var agent_ssh = require('../lib/agent/ssh');
-var resolver_ssh_username = require('../lib/resolver/ssh_username.js');
+var resolver_ssh_username = require('../lib/resolver/ssh');
 
 /*
   Define a RedRouter Instance
