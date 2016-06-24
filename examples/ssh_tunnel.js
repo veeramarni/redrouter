@@ -7,9 +7,8 @@ var redrouter = require('../');
 
 // Import RedRouter Components
 var backend_etcd = require('../lib/backend/etcd');
-var client_ssh = require('../lib/client');
-var server_ssh = require('../lib/server/ssh');
-var resolver_static = require('../lib/resolver');
+var agent_ssh = require('../lib/agent/ssh');
+var resolver_ssh_username = require('../lib/resolver/ssh_username.js');
 
 /*
   Define a RedRouter Instance
@@ -17,15 +16,15 @@ var resolver_static = require('../lib/resolver');
 var proxy = new redrouter({
   backend : {
     constructor: backend_etcd,
-    options: {}
+    options: {
+      host: "localhost:2379",
+      etcd_conn_opts: {}
+    }
   },
   resolvers: [
-    { constructor: resolver_static, options: {}}
+    { constructor: resolver_ssh_username, options: {}}
   ],
-  server_agents: [
-    { constructor: server_ssh, options: { host: 'localhost', port: '3000'}}
-  ],
-  client_agents: [
-    { constructor: client_ssh, options: {}}
+  agents: [
+    { constructor: agent_ssh, options: { host: 'localhost', port: 3000}}
   ]
 });
