@@ -6,7 +6,7 @@
 RedRouter is a universal reverse-proxy developed in Node.JS.  It is designed to be modular as possible, allowing you to use whatever Backend, Resolver and Proxy Agent you wish.   What are these things, you ask?
 
 #### Backend
-Backends are used to store the Proxy Records themselves.  By default, RedRouter stores proxy records in a memory cache, but you can opt to use the following:
+Backends are used to store the proxy records themselves.  By default, RedRouter stores proxy records in a memory cache, but you can additionally choose to search the following:
 - [X] etcd
 - [ ] memcached
 - [ ] mongodb
@@ -14,22 +14,27 @@ Backends are used to store the Proxy Records themselves.  By default, RedRouter 
 - [ ] redis
 - [ ] consul
 
+once a record has been found, it is added to the local memory cache, to reduce the time for subsequent requests.
+
 #### Resolvers
 Resolvers are used to determine the configuration of the proxy connection that is to be created.  This could be as simple as appending an IP Address, or more advanced; like round-robin routing, location-based routing, etc. Writing or extending an existing resolver is the easiest way to implement application-specific functionality. Some basic resolvers that have been implemented:
 - [X] static resolver
 - [ ] round robin
 - [ ] dynamic load balancing
 - [ ] location-based
+- [X] ssh username-based routing
 
 #### Middleware
 Your application can optionally implement a middleware stack, used to transform the content of incoming messages:
 - [ ] Let's Encrypt
 
+Middleware is not something that we intend to be modular, but rather, would typically be used to inject your own functionality without modifying existing resolver or proxy agent code.
+
 #### Proxy Agent
 Proxy agents forward the content to a destination given the route provided by
 the resolver.  Some that have been implemented:
-- [X] HTTP
-- [X] HTTPS
+- [ ] HTTP
+- [ ] HTTPS
 - [X] SSH (Requires SSH Resolver)
 - [X] WebSSH (Basic wrapper used by Wetty)
 - [ ] SOCKS
