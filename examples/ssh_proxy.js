@@ -31,6 +31,11 @@ var proxy = new redrouter({
     }
   ],
   agents: [
-    { constructor: agent_ssh, options: { host: 'localhost', port: 3000}}
+    { constructor: agent_ssh,
+      options: {
+        host: 'localhost',
+        port: 3000
+      }
+    }
   ]
 });

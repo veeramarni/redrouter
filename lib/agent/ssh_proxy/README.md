@@ -1,2 +1,2 @@
-### SSH Agent for RedRouter
-SSH Agent establishes an SSH Server to handle incoming requests, which are currently only handled by the SSH Resolver.
+### SSH Proxy Agent for RedRouter
+SSH Proxy Agent proxies incoming SSH Requests using the SSH Resolver.  Read the SSH Resolver for more details, or see the ssh_proxy.js example.
