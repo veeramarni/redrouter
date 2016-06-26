@@ -30,7 +30,7 @@ Proxy agents forward the content to a destination given the route provided by
 the resolver.  Some that have been implemented:
 - [X] HTTP
 - [X] HTTPS
-- [X] SSH (Requires SSH_USERNAME Resolver)
+- [X] SSH (Requires SSH Resolver)
 - [X] WebSSH (Basic wrapper used by Wetty)
 - [ ] SOCKS
 
