@@ -33,6 +33,10 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+
+    "redrouter.agent.ssh-proxy": "file:./lib/agent/ssh_proxy",
+    "redrouter.backend.etcd": "file:./lib/backend/etcd",
+    "redrouter.resolver.ssh" : "file:./lib/resolver/ssh"
   }
 }
