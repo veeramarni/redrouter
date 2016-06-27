@@ -1,6 +1,6 @@
 {
   "name": "redrouter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "modular reverse proxy for nodejs",
   "main": "index.js",
   "scripts": {
@@ -34,9 +34,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-
     "redrouter.agent.ssh-proxy": "file:./lib/agent/ssh_proxy",
     "redrouter.backend.etcd": "file:./lib/backend/etcd",
-    "redrouter.resolver.ssh" : "file:./lib/resolver/ssh"
+    "redrouter.resolver.ssh": "file:./lib/resolver/ssh"
   }
 }
