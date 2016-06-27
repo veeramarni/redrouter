@@ -3,12 +3,12 @@
 **/
 
 // Import RedRouter Core
-var redrouter = require('../');
+var redrouter = require('redrouter').create;
 
 // Import RedRouter Components
-var backend_etcd = require('../lib/backend/etcd');
-var agent_ssh = require('../lib/agent/ssh_proxy');
-var resolver_ssh = require('../lib/resolver/ssh');
+var backend_etcd = require('redrouter.backend.etcd');
+var agent_ssh = require('redrouter.agent.ssh-proxy');
+var resolver_ssh = require('redrouter.resolver.ssh');
 
 /*
   Define a RedRouter Instance

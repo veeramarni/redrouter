@@ -36,7 +36,7 @@ the resolver.  Some that have been implemented:
 - [ ] HTTP
 - [ ] HTTPS
 - [X] SSH (Requires SSH Resolver)
-- [X] WebSSH (Basic wrapper used by Wetty)
+- [X] SSH over WS (Basic wrapper used by Wetty)
 - [ ] SOCKS
 
 #### Usecases
