@@ -1,11 +1,8 @@
 var term;
 var buf = '';
 
-function Wetty(opts, argv) {
-
-    // Import Options
-    this.argv_ = argv;
-    this.pid_ = -1;
+function Wetty(opts) {
+    var _this = this;
 
     // Connection Defaults
     var opts = {
@@ -23,9 +20,38 @@ function Wetty(opts, argv) {
       query = query + "&host=" + opts.host;
 
     // Create Socket
-    this.socket = io(opts.domain, {path : opts.path, query : query});
+    var socket = io(opts.domain, {path : opts.path, query : query});
 
-    this.socket.on('connect', function() {
+    // Define WettyTerm Object
+    function WettyTerm(argv){
+        this.argv_ = argv || [];
+        this.pid_ = -1;
+        this.io = null;
+    }
+
+    WettyTerm.prototype.run = function() {
+        this.io = this.argv_.io.push();
+
+        this.io.onVTKeystroke = this.sendString_.bind(this);
+        this.io.sendString = this.sendString_.bind(this);
+        this.io.onTerminalResize = this.onTerminalResize.bind(this);
+    }
+
+    WettyTerm.prototype.sendString_ = function(str) {
+        socket.emit('input', str);
+    };
+
+    WettyTerm.prototype.onTerminalResize = function(col, row) {
+        var resizeObj = {
+          cols : col,
+          rows : row,
+          height : window.term.div_.clientHeight,
+          width :  window.term.div_.clientWidth
+        }
+        socket.emit('resize', resizeObj );
+    };
+
+    socket.on('connect', function() {
         var _this = this;
 
         lib.init(function() {
@@ -40,13 +66,7 @@ function Wetty(opts, argv) {
             term.prefs_.set('ctrl-v-paste', true);
             term.prefs_.set('use-default-window-copy', true);
 
-            term.runCommandClass(Wetty, document.location.hash.substr(1));
-            _this.socket.emit('resize', {
-                col: term.screenSize.width,
-                row: term.screenSize.height,
-                height: document.getElementById('terminal').height,
-                width: document.getElementById('terminal').width
-            });
+            term.runCommandClass(WettyTerm, document.location.hash.substr(1));
 
             if (buf && buf != '')
             {
@@ -57,7 +77,7 @@ function Wetty(opts, argv) {
     });
 
     // Handles Interactive Prompts
-    this.socket.on('prompt', function(data){
+    socket.on('prompt', function(data){
       if (!term){
         buf += data.prompt;
         return;
@@ -69,7 +89,7 @@ function Wetty(opts, argv) {
     });
 
     // Handles Regular Output
-    this.socket.on('output', function(data) {
+    socket.on('output', function(data) {
         if (!term) {
             buf += data;
             return;
@@ -77,23 +97,7 @@ function Wetty(opts, argv) {
         term.io.writeUTF16(data);
     });
 
-    this.socket.on('disconnect', function() {
+    socket.on('disconnect', function() {
         console.log("Socket.io connection closed");
     });
 }
-
-Wetty.prototype.run = function() {
-    this.io = this.argv_.io.push();
-
-    this.io.onVTKeystroke = this.sendString_.bind(this);
-    this.io.sendString = this.sendString_.bind(this);
-    this.io.onTerminalResize = this.onTerminalResize.bind(this);
-}
-
-Wetty.prototype.sendString_ = function(str) {
-    this.socket.emit('input', str);
-};
-
-Wetty.prototype.onTerminalResize = function(col, row) {
-    this.socket.emit('resize', { col: col, row: row, height: document.getElementById('terminal').height , width: document.getElementById('terminal').width});
-};
