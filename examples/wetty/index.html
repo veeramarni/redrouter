@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wetty - The WebTTY Terminal Emulator</title>
+    <script src="http://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="lib/hterm_all.js"></script>
+    <script src="lib/wetty.js"></script>
+    <script>
+      Wetty({
+          username: 'allderek',
+          host: 'allderek.com'
+      });
+    </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+        #terminal {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="terminal"></div>
+</body>
+
+</html>

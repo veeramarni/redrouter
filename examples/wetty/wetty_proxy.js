@@ -3,12 +3,12 @@
 **/
 
 // Import RedRouter Core
-var redrouter = require('../').create;
+var redrouter = require('../../').create;
 
 // Import RedRouter Components
 var backend_etcd = require('redrouter.backend.etcd');
 var agent_wetty = require('redrouter.agent.wetty');
-var resolver_ws = require('redrouter.resolver.ws');
+var resolver_ssh = require('redrouter.resolver.ssh');
 
 /*
   Define a RedRouter Instance
@@ -22,11 +22,17 @@ var proxy = new redrouter({
     }
   },
   resolvers: [
-    { constructor: resolver_ws,
+    { constructor: resolver_ssh,
+      options: {
+
+      }
     }
   ],
   agents: [
-    { constructor: agent_wetty
+    { constructor: agent_wetty,
+      options: {
+
+      }
     }
   ]
 });

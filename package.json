@@ -35,7 +35,9 @@
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "redrouter": "*",
+
     "redrouter.agent.ssh-proxy": "file:./lib/agent/ssh_proxy",
+    "redrouter.agent.wetty": "file:./lib/agent/wetty",
     "redrouter.backend.etcd": "file:./lib/backend/etcd",
     "redrouter.resolver.ssh": "file:./lib/resolver/ssh"
   }
