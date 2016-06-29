@@ -1,0 +1,29 @@
+{
+  "name": "redrouter.middleware.docker",
+  "version": "0.1.1",
+  "description": "docker middlware for redrouter",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derektbrown/redrouter.git"
+  },
+  "keywords": [
+    "redrouter",
+    "ssh",
+    "reverse",
+    "proxy"
+  ],
+  "author": "Derek Brown",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/derektbrown/redrouter/issues"
+  },
+  "homepage": "https://github.com/derektbrown/redrouter#readme",
+  "dependencies": {
+    "dolphin": "0.0.7",
+    "redrouter": "^0.1.0"
+  },
+  "peerDependencies": {
+    "redrouter": "^0.1.0"
+  }
+}

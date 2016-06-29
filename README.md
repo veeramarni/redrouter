@@ -17,15 +17,15 @@ Backends are used to store the proxy records themselves.  By default, RedRouter 
 once a record has been found, it is added to the local memory cache, to reduce the time for subsequent requests.
 
 #### Resolvers
-Resolvers are used to determine the configuration of the proxy connection that is to be created.  This could be as simple as appending an IP Address, or more advanced; like round-robin routing, location-based routing, etc. Writing or extending an existing resolver is the easiest way to implement application-specific functionality. Some basic resolvers that have been implemented:
-- [X] static resolver
+Resolvers are used to find the proxy record matching a particular request.  This could be as simple as checking against the HTTP Request URL or SSH Username, or could be more complex, such as pattern matching. Some that have been implemented:
+- [X] SSH Username
+
+#### Middleware
+Your application can optionally implement a middleware stack, used to transform the content of proxy records.   This could be anything- logging, load balancing, even Docker discovery.  As with other middleware stacks, order does matter- so be sure to document this in developing your middleware.
+- [ ] docker resolution
 - [ ] round robin
 - [ ] dynamic load balancing
 - [ ] location-based
-- [X] ssh username-based routing
-
-#### Middleware
-Your application can optionally implement a middleware stack, used to transform the content of incoming messages.  Middleware is not something that we intend to be modular, but rather, would typically be used to inject your own functionality without modifying existing resolver or proxy agent code.
 
 #### Proxy Agent
 Proxy agents forward the content to a destination given the route provided by
@@ -33,13 +33,14 @@ the resolver.  Some that have been implemented:
 - [ ] HTTP
 - [ ] HTTPS
 - [X] SSH (Requires SSH Resolver)
-- [X] SSH over WS (Basic wrapper used by Wetty)
+- [X] SSH over WebSockets (Basic wrapper used by Wetty)
 - [ ] SOCKS
 
 #### Usecases
 We are in the process of writing some simple example usecases in the `./examples` folder.  Feel free to contribute your own example code.  Some of the uses we have thought of:
 - [ ] HTTP Proxy
-- [ ] Dynamic SSH Tunnel
+- [ ] SSH Proxy
+- [ ] SSH over WebSockets
 
 
 ## Getting Started
@@ -47,7 +48,8 @@ We are in the process of writing some simple example usecases in the `./examples
 #### Encryption
 If you wish to use encryption, you can pass options into the SSL object:
 ssl: {
-
+  key : fs.readFileSync('/root/local/host.key'),
+  cert : fs.readFileSync('/root/local/host.cert')
 }
 
 ## API

@@ -39,6 +39,7 @@
     "redrouter.agent.ssh-proxy": "file:./lib/agent/ssh_proxy",
     "redrouter.agent.wetty": "file:./lib/agent/wetty",
     "redrouter.backend.etcd": "file:./lib/backend/etcd",
-    "redrouter.resolver.ssh": "file:./lib/resolver/ssh"
+    "redrouter.resolver.ssh": "file:./lib/resolver/ssh",
+    "redrouter.middleware.docker": "file:./lib/middleware/docker"
   }
 }

@@ -3,7 +3,7 @@
 **/
 
 // Import RedRouter Core
-var redrouter = require('../').create;
+var redrouter = require('../../').create;
 
 // Import RedRouter Components
 var backend_etcd = require('redrouter.backend.etcd');
