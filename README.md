@@ -25,10 +25,7 @@ Resolvers are used to determine the configuration of the proxy connection that i
 - [X] ssh username-based routing
 
 #### Middleware
-Your application can optionally implement a middleware stack, used to transform the content of incoming messages:
-- [ ] Let's Encrypt
-
-Middleware is not something that we intend to be modular, but rather, would typically be used to inject your own functionality without modifying existing resolver or proxy agent code.
+Your application can optionally implement a middleware stack, used to transform the content of incoming messages.  Middleware is not something that we intend to be modular, but rather, would typically be used to inject your own functionality without modifying existing resolver or proxy agent code.
 
 #### Proxy Agent
 Proxy agents forward the content to a destination given the route provided by
@@ -46,6 +43,12 @@ We are in the process of writing some simple example usecases in the `./examples
 
 
 ## Getting Started
+
+#### Encryption
+If you wish to use encryption, you can pass options into the SSL object:
+ssl: {
+
+}
 
 ## API
 
