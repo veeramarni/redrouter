@@ -34,7 +34,7 @@ var proxy = new redrouter({
   middleware: [
     { constructor: middleware_docker,
       options: {
-         docker_url: "http://localhost:2375"
+         docker_url: "http://localhost.com/2375"
       }
     }
   ],
