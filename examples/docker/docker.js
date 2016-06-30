@@ -4,6 +4,7 @@
 
 // Import RedRouter Core
 var redrouter = require('../../').create;
+var fs = require('fs');
 
 // Import RedRouter Components
 var backend_etcd = require('redrouter.backend.etcd');
@@ -15,6 +16,10 @@ var middleware_docker = require('redrouter.middleware.docker');
   Define a RedRouter Instance
 */
 var proxy = new redrouter({
+  ssl:{
+    key: fs.readFileSync('local/host.key'),
+    cert: fs.readFileSync('local/host.key.pub')
+  },
   backend : {
     constructor: backend_etcd,
     options: {
@@ -34,7 +39,7 @@ var proxy = new redrouter({
   middleware: [
     { constructor: middleware_docker,
       options: {
-         docker_url: "http://localhost.com/2375"
+         docker_url: "tcp://localhost:2375"
       }
     }
   ],

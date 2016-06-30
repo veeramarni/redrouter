@@ -1,0 +1,2 @@
+## Docker Middleware for RedRouter
+The Docker Middleware module for RedRouter allows you to create records using container ids as opposed to host names; the host names will be injected automatically at resolution.  Simply create a `container_id` field in a given record, and a `host` field will be dynamically generated.  NOTE: having the host set will override this module; so do not set the host statically if you wish to use this module.

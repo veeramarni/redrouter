@@ -4,7 +4,7 @@
   "description": "modular reverse proxy for nodejs",
   "main": "index.js",
   "scripts": {
-    "install": "./install.sh",
+    "key-gen": "./install.sh",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
